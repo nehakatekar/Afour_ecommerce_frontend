@@ -39,12 +39,14 @@ const OrderList = ({ history }) => {
     dispatch(getAllOrders());
   }, [dispatch, alert, error, deleteError, history, isDeleted]);
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    { field: "", headerName: "", minWidth: 290, 
+   },
+    { field: "id", headerName: "Order ID", minWidth: 320, 
+   },
     {
       field: "status",
       headerName: "Status",
       minWidth: 150,
-      flex: 0.5,
       cellClassName: (params) => {
         return params.getValue(params.id, "status") === "Delivered"
           ? "greenColor"
@@ -53,21 +55,18 @@ const OrderList = ({ history }) => {
     },
     {
       field: "itemsQty",
-      headerName: "Items Qty",
+      headerName: "ItemsQty",
       type: "number",
-      minWidth: 150,
-      flex: 0.4,
+      minWidth: 200,
     },
     {
       field: "amount",
       headerName: "Amount",
       type: "number",
       minWidth: 270,
-      flex: 0.5,
     },
     {
       field: "actions",
-      flex: 0.3,
       headerName: "Actions",
       minWidth: 150,
       type: "number",
@@ -119,5 +118,4 @@ const OrderList = ({ history }) => {
     </Fragment>
   );
 };
-
 export default OrderList;

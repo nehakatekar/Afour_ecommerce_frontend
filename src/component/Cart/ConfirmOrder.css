@@ -21,7 +21,7 @@
   .confirmshippingAreaBox > div {
     display: flex;
     margin: 1vmax 0;
-  } 
+  }
   .confirmshippingAreaBox > div > p {
     font: 400 1vmax "Roboto";
     color: black;
@@ -30,28 +30,28 @@
     margin: 0 1vmax;
     font: 100 1vmax "Roboto";
     color: #575757;
-  } 
+  }
   .confirmCartItems > p {
     font: 400 1.8vmax "Roboto";
   }
   .confirmCartItems {
     padding: 5vmax;
     padding-top: 2vmax;
-  } 
+  }
   .confirmCartItemsContainer {
     max-height: 20vmax;
     overflow-y: auto;
-  } 
+  }
   .confirmCartItemsContainer > div {
     display: flex;
     font: 400 1vmax "Roboto";
     align-items: center;
     justify-content: space-between;
     margin: 2vmax 0;
-  } 
+  }
   .confirmCartItemsContainer > div > img {
     width: 3vmax;
-  } 
+  }
   .confirmCartItemsContainer > div > a {
     color: #575757;
     margin: 0 2vmax;
@@ -104,4 +104,3 @@
   .orderSummary > button:hover {
     background-color: rgb(192, 71, 50);
   }
-  

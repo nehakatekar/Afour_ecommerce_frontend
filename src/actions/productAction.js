@@ -17,6 +17,7 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   CLEAR_ERRORS,
 } from "../constants/productConstants";
+// Get All Products
 export const getProduct =(keyword="", currentPage = 1,category)=>
   async (dispatch) => {
     try {
@@ -37,6 +38,7 @@ export const getProduct =(keyword="", currentPage = 1,category)=>
       });
     }
   };
+// Get All Products For Admin
 export const getAdminProduct = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
@@ -52,6 +54,7 @@ export const getAdminProduct = () => async (dispatch) => {
     });
   }
 };
+// Create Product
 export const createProduct = (productData) => async (dispatch) => {
   try {
     dispatch({ type: NEW_PRODUCT_REQUEST });
@@ -74,6 +77,7 @@ export const createProduct = (productData) => async (dispatch) => {
     });
   }
 };
+// Delete Product
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
@@ -89,6 +93,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     });
   }
 };
+// Get Products Details
 export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
@@ -104,6 +109,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     });
   }
 };
+// Clearing Errors
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

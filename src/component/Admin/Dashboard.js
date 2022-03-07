@@ -37,7 +37,7 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div>
             <p>
-              Total Amount <br /> ₹2000
+              Total Amount <br /> ₹{totalAmount}
             </p>
           </div>
           <div className="dashboardSummaryBox2">
@@ -49,15 +49,10 @@ const Dashboard = () => {
               <p>Orders</p>
               <p>{orders && orders.length}</p>
             </Link>
-            <Link to="/admin/users">
-              <p>Users</p>
-              <p>2</p>
-            </Link>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default Dashboard;

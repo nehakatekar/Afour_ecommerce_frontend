@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Profile.css";
+import Header from '../layout/Header/Header.js'
 const Profile = ({ history }) => {
     const { user, isAuthenticated } = useSelector((state) => state.user);
     useEffect(() => {
@@ -17,6 +18,7 @@ const Profile = ({ history }) => {
                     <img src={user.avatar.url} alt={user.name} />
                 </div>
                 <div>
+                    <div></div>
                     <div>
                         <h4>Full Name</h4>
                         <p>{user.name}</p>
@@ -34,6 +36,7 @@ const Profile = ({ history }) => {
                     </div>
                 </div>
             </div>
+            <Header/>  
         </Fragment>
     );
 };

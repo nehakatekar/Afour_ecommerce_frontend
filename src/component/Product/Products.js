@@ -21,7 +21,6 @@ const Product = ({ match }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const {
     products,
- 
     error,
     productsCount,
     resultPerPage,

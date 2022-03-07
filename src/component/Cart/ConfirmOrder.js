@@ -86,7 +86,6 @@ const ConfirmOrder = ({ history }) => {
             </div>
             <div className="orderSummaryTotal">
               <p>
-                
                 <b>Total:</b>
               </p>
               <span>₹{totalPrice}</span>

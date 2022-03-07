@@ -8,19 +8,22 @@ import {
   updateOrder,
 } from "../../actions/orderAction";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { Button } from "@material-ui/core";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./processOrder.css";
 const ProcessOrder = ({ history, match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
+  console.log(order)
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
     const myForm = new FormData();
+    console.log(myForm)
     myForm.set("status", status);
     dispatch(updateOrder(match.params.id, myForm));
+    console.log(order)
   };
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -45,6 +48,9 @@ const ProcessOrder = ({ history, match }) => {
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
+          {loading ? (
+            <Loader />
+          ) : (
             <div
               className="confirmOrderPage"
               style={{
@@ -141,7 +147,6 @@ const ProcessOrder = ({ history, match }) => {
                 >
                   <h1>Process Order</h1>
                   <div>
-                    <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
                       <option value="">Choose Category</option>
                       {order.orderStatus === "Processing" && (
@@ -153,6 +158,7 @@ const ProcessOrder = ({ history, match }) => {
                     </select>
                   </div>
                   <Button
+                  style={{backgroundColor:"lightblue",width:"400px",height:"50px"}}
                     id="createProductBtn"
                     type="submit"
                     disabled={
@@ -164,10 +170,10 @@ const ProcessOrder = ({ history, match }) => {
                 </form>
               </div>
             </div>
+          )}
         </div>
       </div>
     </Fragment>
   );
 };
-
 export default ProcessOrder;

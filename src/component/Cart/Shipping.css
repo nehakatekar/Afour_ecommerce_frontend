@@ -6,7 +6,6 @@
     align-items: center;
     flex-direction: column;
   }
-  
   .shippingBox {
     background-color: white;
     width: 25vw;
@@ -14,7 +13,6 @@
     box-sizing: border-box;
     overflow: hidden;
   }
-  
   .shippingHeading {
     text-align: center;
     color: rgba(0, 0, 0, 0.664);
@@ -24,7 +22,6 @@
     width: 50%;
     margin: auto;
   }
-  
   .shippingForm {
     display: flex;
     flex-direction: column;
@@ -35,13 +32,11 @@
     height: 80%;
     transition: all 0.5s;
   }
-  
   .shippingForm > div {
     display: flex;
     width: 100%;
     align-items: center;
   }
-  
   .shippingForm > div > input,
   .shippingForm > div > select {
     padding: 1vmax 4vmax;
@@ -53,7 +48,6 @@
     font: 300 0.9vmax cursive;
     outline: none;
   }
-  
   .shippingForm > div > svg {
     position: absolute;
     transform: translateX(1vmax);

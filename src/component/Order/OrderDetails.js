@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
-import { useAlert } from "react-alert";
+import { useAlert } from "react-alert"
+import Loader from "../layout/Loader/Loader";
 const OrderDetails = ({ match }) => {
-  const { order, error } = useSelector((state) => state.orderDetails);
+  const { order, error ,loading} = useSelector((state) => state.orderDetails);
   const dispatch = useDispatch();
   const alert = useAlert();
   useEffect(() => {
@@ -17,7 +18,10 @@ const OrderDetails = ({ match }) => {
     dispatch(getOrderDetails(match.params.id));
   }, [dispatch, alert, error, match.params.id]);
   return (
-  
+        <Fragment>
+             {loading ? (
+        <Loader />
+      ) : (
         <Fragment>
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
@@ -67,7 +71,7 @@ const OrderDetails = ({ match }) => {
                 </div>
               </div>
               <Typography>Order Status</Typography>
-              {/* <div className="orderDetailsContainerBox">
+              <div className="orderDetailsContainerBox">
                 <div>
                   <p
                     className={
@@ -79,11 +83,11 @@ const OrderDetails = ({ match }) => {
                     {order.orderStatus && order.orderStatus}
                   </p>
                 </div>
-              </div> */}
+              </div> 
             </div>
-            {/* <div className="orderDetailsCartItems">
+            <div className="orderDetailsCartItems">
               <Typography>Order Items:</Typography>
-              <div className="orderDetailsCartItemsContainer">
+            <div className="orderDetailsCartItemsContainer">
                 {order.orderItems &&
                   order.orderItems.map((item) => (
                     <div key={item.product}>
@@ -98,8 +102,10 @@ const OrderDetails = ({ match }) => {
                     </div>
                   ))}
               </div>
-            </div> */}
+            </div>
           </div>
+          </Fragment>
+          )}
         </Fragment>
   );
 };

@@ -39,30 +39,31 @@ const ProductList = ({ history }) => {
     dispatch(getAdminProduct());
   }, [dispatch, alert, error, deleteError, history, isDeleted]);
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    { field: "", headerName: "", 
+    minWidth: 300,
+   },
+    { field: "id", headerName: "Product ID", 
+    minWidth: 300,
+   },
     {
       field: "name",
       headerName: "Name",
-      minWidth: 350,
-      flex: 1,
+       minWidth: 150,
     },
     {
       field: "stock",
       headerName: "Stock",
       type: "number",
-      minWidth: 150,
-      flex: 0.3,
+      minWidth: 180,
     },
     {
       field: "price",
       headerName: "Price",
       type: "number",
-      minWidth: 270,
-      flex: 0.5,
+      minWidth: 150,
     },
     {
       field: "actions",
-      flex: 0.3,
       headerName: "Actions",
       minWidth: 150,
       type: "number",
@@ -111,5 +112,4 @@ const ProductList = ({ history }) => {
     </Fragment>
   );
 };
-
 export default ProductList;

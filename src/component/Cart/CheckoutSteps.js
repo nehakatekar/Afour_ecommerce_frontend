@@ -45,5 +45,4 @@ const CheckoutSteps = ({ activeStep }) => {
     </Fragment>
   );
 };
-
 export default CheckoutSteps;

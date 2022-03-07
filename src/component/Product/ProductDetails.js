@@ -8,21 +8,12 @@ import { addItemsToCart } from '../../actions/cartAction';
 const ProductDetails = ({ match }) => {
     const dispatch = useDispatch();
     const alert = useAlert()
-    const { product, error } = useSelector(state => state.productDetails)
-   const[quantity,setQuantity]=useState(1)
-   const increaseQuantity = () => {
-    if (product.Stock <= quantity) return;
-    const qty = quantity + 1;
-    setQuantity(qty);
-  };
-  const decreaseQuantity = () => {
-    if (1 >= quantity) return;
-    const qty = quantity - 1;
-    setQuantity(qty);
-  };
+    const { product, error } = useSelector
+    (state => state.productDetails)
+   const[quantity]=useState(1)
   const addToCartHandler=()=>{
 dispatch(addItemsToCart(match.params.id, quantity))
-alert.success("Item Added To Cart")
+alert.success(product.name+" Added To Cart")
   }
     useEffect(() => {
         if (error) {
@@ -55,17 +46,6 @@ alert.success("Item Added To Cart")
                     <div className="detailsBlock-3">
                         <h1>{`₹${product.price}`}</h1>
                         <div className="detailsBlock-3-1">
-                            <div className="detailsBlock-3-1-1">
-                                <button
-                                    onClick={decreaseQuantity}
-                                >-</button>
-                                <input readOnly type="number"
-                                    value={quantity}
-                                />
-                                <button
-                                    onClick={increaseQuantity}
-                                >+</button>
-                            </div>
                             <button
                                 disabled={product.Stock < 1 ? true : false}
                             onClick={addToCartHandler}

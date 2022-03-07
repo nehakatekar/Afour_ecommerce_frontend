@@ -19,8 +19,7 @@ const LoginSignUp = ({ history,location }) => {
   });
   const { name, email, password } = user;
   const { error, isAuthenticated } = useSelector(state => state.user)
-  const [avatar, setAvatar] = useState("/Profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [avatar] = useState("/Profile.png");
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword))
@@ -38,14 +37,6 @@ const LoginSignUp = ({ history,location }) => {
   const [loginPassword, setLoginPassword] = useState("");
   const registerDataChange = (e) => {
     if (e.target.name === "avatar") {
-      // const reader = new FileReader();
-      // reader.onload = () => {
-      //   if (reader.readyState === 2) {
-      //     setAvatarPreview(reader.result);
-      //     setAvatar(reader.result);
-      //   }
-      // };
-      // reader.readAsDataURL(e.target.files[0]);
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
@@ -142,15 +133,6 @@ const LoginSignUp = ({ history,location }) => {
               onChange={registerDataChange}
             />
           </div>
-          {/* <div id="registerImage">
-            <img src={avatarPreview} alt="Avatar Preview" />
-            <input
-              type="file"
-              name="avatar"
-              accept="image/*"
-              onChange={registerDataChange}
-            />
-          </div> */}
           <input type="submit" value="Register" className="signUpBtn" />
         </form>
       </div>

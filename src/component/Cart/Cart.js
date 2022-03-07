@@ -18,7 +18,9 @@ const Cart = ({ history }) => {
   };
   const decreaseQuantity = (id, quantity) => {
     const newQty = quantity - 1;
-    if (1 >= quantity) {
+    if (quantity <= 1) {
+      alert("PLease confirm to remove from cart")
+      dispatch(removeItemsFromCart(id));
       return;
     }
     dispatch(addItemsToCart(id, newQty));
@@ -29,7 +31,7 @@ const Cart = ({ history }) => {
   const checkoutHandler = () => {
     history.push("/login?redirect=shipping");
   };
-return (
+  return (
     <Fragment>
       {cartItems.length === 0 ? (
         <div className="emptyCart">
@@ -58,6 +60,7 @@ return (
                       -
                     </button>
                     <input type="number" value={item.quantity} readOnly />
+                    {item.quantity}
                     <button
                       onClick={() =>
                         increaseQuantity(
@@ -70,9 +73,8 @@ return (
                       +
                     </button>
                   </div>
-                  <p className="cartSubtotal">{`₹${
-                    item.price * item.quantity
-                  }`}</p>
+                  <p className="cartSubtotal">{`₹${item.price * item.quantity
+                    }`}</p>
                 </div>
               ))}
             <div className="cartGrossProfit">
@@ -95,5 +97,4 @@ return (
     </Fragment>
   );
 };
-
 export default Cart;
